@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="googlemaps.css">
+  <style>
+    #map {
+      width: 100%;
+      height: 500px;
+      background-color: #ccc;
+      margin: 30px auto;
+    }
+  </style>
+	<title>Google Maps API</title>
+</head>
+<body>
+    <!-- CSS file has roughly five different styles. Not all are named similarily for self-explanatory reasons. They are Style_1 through Style_3 and rest follow a necessary naming convention -->
+  <p><strong>Name:</strong> Jonathan Luna</p>
+  <p><strong>Due Date:</strong> 11/24/2026</p>
+  <!-- This script tag should go into a JS file -->
+    <ul>
+      <li><a href="index.html"><strong>index.html</strong></a></li>
+      <li><a href="resume.html"><strong>resume.html</strong></a></li>
+      <li><a href="page3.html"><strong>page3.html</strong></a></li>
+      <li><a href="googlemaps.html"><strong>googlemaps.html</strong></a></li>
+    </ul>
+    <h1 class="Style_1">Google Maps API Page</h1>
+      <p class="Style_2"><strong>Hello!</strong> This is my Google Maps API page. I have included a fun interactable involving Google Maps below! Hover over the images to learn more about them!</p>
+      <div id="map"></div>
+      <script>
+        function initMap() {
+          const center = { lat: 41.8781, lng: -87.6298 };
+          const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: center,
+          });
+
+          const locations = [
+            {
+              title: "Willis Tower",
+              position: { lat: 41.879052140982246, lng: -87.63586125582326 },
+              image: "images/City.png",
+              sidewalkPath: [
+                { lat: 41.87882, lng: -87.63622 },
+                { lat: 41.87882, lng: -87.6355 },
+              ],
+            },
+            {
+              title: "The Art Institute of Chicago",
+              position: { lat: 41.87974632460261, lng: -87.62231622105489 },
+              image: "images/Museum.png",
+              sidewalkPath: [
+                { lat: 41.87945, lng: -87.62275 },
+                { lat: 41.87945, lng: -87.622 },
+              ],
+            },
+            {
+              title: "The Chicago Theater",
+              position: { lat: 41.88547423125778, lng: -87.62768516869274 },
+              image: "images/Masks.png",
+              sidewalkPath: [
+                { lat: 41.88515, lng: -87.62815 },
+                { lat: 41.88515, lng: -87.62725 },
+              ],
+            },
+          ];
+
+          new google.maps.Polyline({
+            map,
+            path: [
+              { lat: 41.8798, lng: -87.6173 },
+              { lat: 41.8775, lng: -87.61725 },
+              { lat: 41.8752, lng: -87.6172 },
+              { lat: 41.8729, lng: -87.6172 },
+              { lat: 41.8706, lng: -87.61725 },
+              { lat: 41.8683, lng: -87.6173 },
+              { lat: 41.8662, lng: -87.6173 },
+            ],
+            strokeColor: "#FFD700",
+            strokeOpacity: 1,
+            strokeWeight: 6,
+            clickable: false,
+          });
+
+          locations.forEach(({ title, position, image, sidewalkPath }) => {
+            new google.maps.Marker({
+              map,
+              title,
+              position,
+              icon: {
+                url: image,
+                scaledSize: new google.maps.Size(48, 48),
+              },
+            });
+
+            new google.maps.Polyline({
+              map,
+              path: sidewalkPath,
+              strokeColor: "#FFD700",
+              strokeOpacity: 1,
+              strokeWeight: 4,
+              clickable: false,
+            });
+          });
+        }
+      </script>
+      <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM1F-BpX660SBK3-Vw9O9f7AEvTAIH8rI&amp;callback=initMap&amp;loading=async">
+      </script>
+      <p class="Style_3">Three unique locations are highlighted with unique images and yellow lines. The yellow polyline mark a brief section of Lake Shore Drive and my favorite hotel of Chicago, the Hilton Hotel, has been circled, too.</p>
+      <p class="Style_3"> P.S. - I had trouble with the polyline implementation--what you see is the best I could do. Apologies.</p>
+    <button type="button" id="contact-button">Display Contact Information</button>
+    <script src="javascript/javascript.js"></script>
+</body>
+
+</html>
+
+
+
+

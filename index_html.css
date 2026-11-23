@@ -1,0 +1,76 @@
+.Style_1 {
+  font-family: 'Doppio One', cursive, sans-serif;
+}
+
+.Style_2 {
+  font-family: 'Baloo 2', sans-serif;
+}
+
+.Style_3 {
+  font-family: 'EB Garamond', serif;
+}
+
+.Style_4 {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+}
+
+.Style_5 {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+}
+
+audio {
+  filter: invert(100%) sepia(50%) hue-rotate(320deg) saturate(400%) brightness(80%) contrast(85%);
+  border-radius: 50px; 
+  width: 300px;
+}
+
+a {
+  color: #5e44b4; 
+}
+
+body {
+  color: #502020;   
+  background-image: url('images/wood_grain.jpg');
+  background-size: cover;  
+  margin: 0;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+audio {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+}
+
+@media (min-width: 600px) {
+  body {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .Style_4 {
+    font-size: 17px;
+  }
+
+  audio {
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem 2.5rem;
+  }
+
+  .Style_4 {
+    font-size: 20px;
+  }
+
+  audio {
+    max-width: 450px;
+  }
+}
